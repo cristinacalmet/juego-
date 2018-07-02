@@ -1,0 +1,43 @@
+pygame.init()
+pygame.mixer.music.load("Habanera.mp3")
+pygame.mixer.music.play(-1)
+
+
+# Define some colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
+TRANS = (1, 2, 3)
+#dupla para escger los colores
+
+
+# medidads para el tablero
+WIDTH = 700
+HEIGHT = 700
+MARK_SIZE = 50
+
+
+
+#clase GRANDE para todo el juego
+class Game:
+   #clase para saber el status del juego
+   def __init__(self):
+      #se comienza el juego con un tablero vacio
+       self.status = 'playing'
+       self.turn = random.randrange(2)
+       self.players = ['x', 'o']
+       self.selected_token = None
+       self.jumping = False
+       pygame.display.set_caption("%s's turn" % self.players[self.turn % 2])
+       self.game_board = [['x', '-', 'x', '-', 'x', '-', 'x', '-'],
+                          ['-', 'x', '-', 'x', '-', 'x', '-', 'x'],
+                          ['x', '-', 'x', '-', 'x', '-', 'x', '-'],
+                          ['-', '-', '-', '-', '-', '-', '-', '-'],
+                          ['-', '-', '-', '-', '-', '-', '-', '-'],
+                          ['-', 'o', '-', 'o', '-', 'o', '-', 'o'],
+                          ['o', '-', 'o', '-', 'o', '-', 'o', '-'],
+                          ['-', 'o', '-', 'o', '-', 'o', '-', 'o']]
+       #matriz creada para hacer el tablero
